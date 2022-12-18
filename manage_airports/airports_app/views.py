@@ -5,6 +5,7 @@ from .serializers import AirportSerializer
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import status
+import json
 
 # Create your views here.
 def index(request):
@@ -15,7 +16,8 @@ def index(request):
 def airport_list(request):
     airports = Airport.objects.all()
     serializer = AirportSerializer(airports, many=True)
-    return JsonResponse(serializer.data, safe=False)
+    return JsonResponse(serializer.data, json_dumps_params={'indent': 2}, safe=False)
+
 
 @api_view(['GET'])
 def airport_ident(request, ident):
