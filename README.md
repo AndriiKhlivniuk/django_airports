@@ -1,7 +1,7 @@
 # django_airports
 source code for airports manage app
 
-Clone this repository\n
+Clone this repository<br>
 Create virtual environment and activate it 
 cd into project
 Run pip install -r requirements.txt
