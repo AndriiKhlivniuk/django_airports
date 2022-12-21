@@ -18,8 +18,8 @@ app.config_from_object('django.conf:settings', namespace='CELERY')
 app.autodiscover_tasks()
 
 app.conf.beat_schedule = {
-    'add-every-hour': {
+    'add-to-database': {
         'task': 'airports_app.tasks.add_csv_data',
-        'schedule': crontab(hour='*/1'),
+        'schedule': crontab(minute='0', hour='*/2')
     }
 }

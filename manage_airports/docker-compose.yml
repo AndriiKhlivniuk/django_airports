@@ -1,0 +1,26 @@
+version: '3.9'
+
+services:
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - redis
+  redis:
+    image: redis:alpine
+    ports:
+      - '6379'
+  celery:
+    build: .
+    command: celery -A manage_airports worker -l info
+    volumes:
+      - .:/app
+    depends_on:
+      - redis
+  celery-beat:
+    build: .
+    command: celery -A manage_airports beat -l info

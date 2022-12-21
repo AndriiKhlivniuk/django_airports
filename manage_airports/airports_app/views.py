@@ -28,3 +28,8 @@ def airport_ident(request, ident):
     
     serializer = AirportSerializer(airport)
     return Response(serializer.data)
+
+@api_view(['GET'])
+def delete_all(request):
+    Airport.objects.all().delete()
+    return Response(status=status.HTTP_200_OK)
