@@ -14,7 +14,7 @@ def add_csv_data():
             row.elevation_ft = None
 
         updated_values = dict(
-            ident = row.ident, type = row.type, name=row['name'], 
+            ident = row.ident, type = row.type, name = row['name'], 
             latitude_deg= row.latitude_deg, longitude_deg = row.longitude_deg, 
             elevation_ft = row.elevation_ft, continent = row.continent,
             iso_country = row.iso_country, iso_region = row.iso_region,
