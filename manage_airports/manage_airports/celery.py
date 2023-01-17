@@ -12,7 +12,7 @@ app = Celery('manage_airports')
 # the configuration object to child processes.
 # - namespace='CELERY' means all celery-related configuration keys
 #   should have a `CELERY_` prefix.
-app.config_from_object('django.conf:settings', namespace='CELERY')
+app.config_from_object('django.conf:settings', namespace = 'CELERY')
 
 # Load task modules from all registered Django apps.
 app.autodiscover_tasks()
@@ -20,6 +20,6 @@ app.autodiscover_tasks()
 app.conf.beat_schedule = {
     'add-to-database': {
         'task': 'airports_app.tasks.add_csv_data',
-        'schedule': crontab(minute='0', hour='*/2')
+        'schedule': crontab(minute = '0', hour = '*/2')
     }
 }

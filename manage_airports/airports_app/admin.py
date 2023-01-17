@@ -5,6 +5,6 @@ from .models import Airport
 
 
 class AirportAdmin(admin.ModelAdmin):
-    search_fields = ("name","ident")
+    search_fields = ("name", "ident")
 
 admin.site.register(Airport, AirportAdmin)
